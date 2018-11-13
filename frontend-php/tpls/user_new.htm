@@ -1,0 +1,108 @@
+    <div align="center">
+
+    <h3>Регистрация нового пользователя</h3>
+    <form method="POST">
+      <table>
+        <tr>
+          <td colspan="3" class="title">
+            Общая информация о пользователе
+          </td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="surname">Фамилия</label></td>
+          <td class="nb" colspan="2"><input type="text" name="surname" value="%surname%" id="surname"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="name">Имя</label></td>
+          <td class="nb" colspan="2"><input type="text" name="name" value="%name%" id="name"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="patronym">Отчество</label></td>
+          <td class="nb" colspan="2"><input type="text" name="patronym" value="%patronym%" id="patronym"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="ad_login">Логин в Active Directory</label></td>
+          <td class="nb" colspan="2"><input type="text" name="ad_login" value="%ad_login%" id="ad_login"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="department">Отдел</label></td>
+          <td class="nb" colspan="2"><input type="text" name="department" value="%department%" id="department"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="position">Должность</label></td>
+          <td class="nb" colspan="2"><input type="text" name="position" value="%position%" id="position"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="phones">Телефоны</label></td>
+          <td class="nb" colspan="2"><input type="text" name="phones" value="%phones%" id="phones"></td>
+        </tr>
+        <tr>
+          <td colspan="3" class="title">
+            Учётные данные пользователя
+          </td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="domain">Домен</label></td>
+          <td class="nb" colspan="2">
+            <select name="domain" id="domain" class="domain">
+            %domains%
+<!-- %domains%
+              <option value="%domain%" %selected%>%domain%</option>
+%domains% --!>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="email">Ящик</label></td>
+          <td class="nb"><input class="email" type="text" name="email" value="%email%" id="email"></td>
+          <td class="nbc"><input type="submit" name="get_email" value="Заполнить"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="password">Пароль</label></td>
+          <td class="nb"><input class="password" type="text" name="password" value="%password%" id="password"></td>
+          <td class="nbc"><input type="submit" name="get_password" value="Другой"></td>
+        </tr>
+        <tr>
+          <td class="nb">
+            <label for="active">Учётная запись включена</label>
+          </td>
+          <td class="nb">
+            <input type="checkbox" name="active" id="active" %active%>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" class="title">
+            Ограничения доступа и квоты
+          </td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="smtp_acl">Список доступа SMTP</label></td>
+          <td class="nb" colspan="2"><input type="text" name="smtp_acl" value="%smtp_acl%" id="smtp_acl"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="max_bytes">Квота объёма писем</label></td>
+          <td class="nb" colspan="2"><input type="text" name="max_bytes" value="%max_bytes%" id="max_bytes"></td>
+        </tr>
+        <tr>
+          <td class="nb">&nbsp;</td>
+	  <td colspan="2" class="nb">
+	    <small>Введите 0, чтобы отключить квоту объёма писем</small>
+	  </td>
+	</tr>
+        <tr>
+          <td class="nb"><label for="max_messages">Квота количества писем</label></td>
+          <td class="nb" colspan="2"><input type="text" name="max_messages" value="%max_messages%" id="max_messages"></td>
+        </tr>
+        <tr>
+          <td class="nb">&nbsp;</td>
+	  <td colspan="2" class="nb">
+	    <small>Введите 0, чтобы отключить квоту количества писем</small>
+	  </td>
+	</tr>
+        <tr>
+          <td class="nbc" colspan="3"><input type="submit" name="user_new" value="Добавить"></td>
+        </tr>
+      </table>
+    </form>
+    </div>

@@ -1,0 +1,243 @@
+<!-- %num%
+        <a href="?view=users&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">%num%</a>
+%num% --!>
+<!-- %num_cur%
+       %num%
+%num_cur% --!>
+<!-- %all%
+        <a href="?view=users&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">Все</a>
+%all% --!>
+<!-- %all_cur%
+        Все
+%all_cur% --!>
+    <div align="center">
+      <h3>Управление пользователями</h3>
+      <form name="%namespace%" method="POST">
+        Показано строк %num% из %total%.<br />
+        Показать %nums% %all%<br />
+        %prev%
+        %next%
+        <br />
+        %pages%
+        <table align="center">
+          <th>
+            <input type="checkbox" name="all_ids" style="display: none;"
+              onclick="all_checkboxes('ids[]', document.%namespace%.all_ids.checked);">
+          </th>
+          <th>Логин</th>
+          <th>Фамилия</th>
+          <th>Имя</th>
+          <th>Отчество</th>
+          <th>Последний вход</th>
+          <th>Последний IP-адрес</th>
+          <th>Квота объёма</th>
+          <th>Квота сообщений</th>
+<!--          <th>Логин в домене</th>
+          <th>Отдел</th>
+          <th>Должность</th>
+          <th>Телефон</th> --!>
+          <th>Доступ</th>
+          %rows%
+<!-- %row_odd%
+          <tr>
+            <td class="odd"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="odd"><a href="?view=user&user_id=%id%">%email%</a></td>
+            <td class="odd"><label for="user_%id%">%surname%</label></td>
+            <td class="odd"><label for="user_%id%">%name%</label></td>
+            <td class="odd"><label for="user_%id%">%patronym%</label></td>
+            <td class="odd"><label for="user_%id%">%lasttime%</label></td>
+            <td class="odd"><label for="user_%id%">%lastip%</label></td>
+            <td class="odd"><label for="user_%id%">%hr_bytes%</label></td>
+            <td class="odd"><label for="user_%id%">%hr_messages%</label></td>
+<!--            <td class="odd"><label for="user_%id%">%ad_login%</label></td>
+            <td class="odd"><label for="user_%id%">%department%</label></td>
+            <td class="odd"><label for="user_%id%">%position%</label></td>
+            <td class="odd"><label for="user_%id%">%phones%</label></td> --!>
+            <td class="odd"><label for="user_%id%">%smtp_acl%</label></td>
+          </tr>
+%row_odd% --!>
+<!-- %row_even%
+          <tr>
+            <td class="even"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="even"><a href="?view=user&user_id=%id%">%email%</a></td>
+            <td class="even"><label for="user_%id%">%surname%</label></td>
+            <td class="even"><label for="user_%id%">%name%</label></td>
+            <td class="even"><label for="user_%id%">%patronym%</label></td>
+            <td class="even"><label for="user_%id%">%lasttime%</label></td>
+            <td class="even"><label for="user_%id%">%lastip%</label></td>
+            <td class="even"><label for="user_%id%">%hr_bytes%</label></td>
+            <td class="even"><label for="user_%id%">%hr_messages%</label></td>
+<!--            <td class="even"><label for="user_%id%">%ad_login%</label></td>
+            <td class="even"><label for="user_%id%">%department%</label></td>
+            <td class="even"><label for="user_%id%">%position%</label></td>
+            <td class="even"><label for="user_%id%">%phones%</label></td> --!>
+            <td class="even"><label for="user_%id%">%smtp_acl%</label></td>
+          </tr>
+%row_even% --!>
+<!-- %row_odd_disabled%
+          <tr>
+            <td class="odd"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="odd"><a style="text-decoration: line-through;" href="?view=user&user_id=%id%">%email%</a></td>
+            <td class="odd"><label for="user_%id%">%surname%</label></td>
+            <td class="odd"><label for="user_%id%">%name%</label></td>
+            <td class="odd"><label for="user_%id%">%patronym%</label></td>
+            <td class="odd"><label for="user_%id%">%lasttime%</label></td>
+            <td class="odd"><label for="user_%id%">%lastip%</label></td>
+            <td class="odd"><label for="user_%id%">%hr_bytes%</label></td>
+            <td class="odd"><label for="user_%id%">%hr_messages%</label></td>
+<!--            <td class="odd"><label for="user_%id%">%ad_login%</label></td>
+            <td class="odd"><label for="user_%id%">%department%</label></td>
+            <td class="odd"><label for="user_%id%">%position%</label></td>
+            <td class="odd"><label for="user_%id%">%phones%</label></td> --!>
+            <td class="odd"><label for="user_%id%">%smtp_acl%</label></td>
+          </tr>
+%row_odd_disabled% --!>
+<!-- %row_even_disabled%
+          <tr>
+            <td class="even"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="even"><a style="text-decoration: line-through;" href="?view=user&user_id=%id%">%email%</a></td>
+            <td class="even"><label for="user_%id%">%surname%</label></td>
+            <td class="even"><label for="user_%id%">%name%</label></td>
+            <td class="even"><label for="user_%id%">%patronym%</label></td>
+            <td class="even"><label for="user_%id%">%lasttime%</label></td>
+            <td class="even"><label for="user_%id%">%lastip%</label></td>
+            <td class="even"><label for="user_%id%">%hr_bytes%</label></td>
+            <td class="even"><label for="user_%id%">%hr_messages%</label></td>
+<!--            <td class="even"><label for="user_%id%">%ad_login%</label></td>
+            <td class="even"><label for="user_%id%">%department%</label></td>
+            <td class="even"><label for="user_%id%">%position%</label></td>
+            <td class="even"><label for="user_%id%">%phones%</label></td> --!>
+            <td class="even"><label for="user_%id%">%smtp_acl%</label></td>
+          </tr>
+%row_even_disabled% --!>
+        </table>
+        %pages%
+        <br />
+        %prev%
+        %next%
+<!-- %page%
+        <a href="?view=users&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">%page%</a>
+%page% --!>
+<!-- %page_cur%
+        %page%
+%page_cur% --!>
+        <br />
+<!-- %prev%
+        <a href="?view=users&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">&#8592;Предыдущая</a>
+%prev% --!>
+<!-- %no_prev%
+        &#8592;Предыдущая
+%no_prev% --!>
+<!-- %next%
+        <a href="?view=users&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">Следующая&#8594;</a>
+%next% --!>
+<!-- %no_next%
+        Следующая&#8594;
+%no_next% --!>
+        <br />
+        <fieldset>
+          <legend>Выберите операцию</legend>
+
+          <div align="left">
+            <input type="radio" name="action" value="go_user_new" id="go_user_new" onclick="showhide('%namespace%');" checked="checked">
+            <label for="go_user_new">Добавить новый почтовый ящик</label><br />
+          </div>
+
+          <div align="left">
+            <input type="radio" name="action" value="users_remove" id="users_remove" onclick="showhide('%prefix%');">
+            <label for="users_remove">Удалить отмеченные почтовые ящики</label><br />
+          </div>
+
+          <div align="left">
+            <input type="radio" name="action" value="users_change_max_bytes" id="users_change_max_bytes" onclick="showhide('%namespace%');">
+            <label for="users_change_max_bytes">Задать квоту объёма писем в ящике</label><br />
+          </div>
+
+          <ul id="users_change_max_bytes_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="users_change_max_bytes_max_bytes">Квота объёма писем в ящике</label>
+                </td>
+                <td class="nb">
+                  <input type="text" name="users_change_max_bytes_max_bytes" id="users_change_max_bytes_max_bytes"
+                    value="%max_bytes_default%">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">&nbsp;</td>
+                <td class="nb"><small>Введите 0, чтобы отключить квоту объёма писем</small></td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="left">
+            <input type="radio" name="action" value="users_change_max_messages" id="users_change_max_messages" onclick="showhide('%namespace%');">
+            <label for="users_change_max_messages">Задать квоту количества писем в ящике</label><br />
+          </div>
+
+          <ul id="users_change_max_messages_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="users_change_max_messages_max_messages">Квота количества писем в ящике</label>
+                </td>
+                <td class="nb">
+                  <input type="text" name="users_change_max_messages_max_messages" id="users_change_max_messages_max_messages"
+                    value="%max_messages_default%">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">&nbsp;</td>
+                <td class="nb"><small>Введите 0, чтобы отключить квоту количества писем</small></td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="left">
+            <input type="radio" name="action" value="users_enable" id="users_enable" onclick="showhide('%namespace%');">
+            <label for="users_enable">Включить отмеченных пользователей</label><br />
+          </div>
+
+          <div align="left">
+            <input type="radio" name="action" value="users_disable" id="users_disable" onclick="showhide('%namespace%');">
+            <label for="users_disable">Отключить отмеченных пользователей</label><br />
+          </div>
+
+          <div align="left">
+            <input type="radio" name="action" value="users_subscribe" id="users_subscribe" onclick="showhide('%namespace%');">
+            <label for="users_subscribe">Подписать отмеченных пользователей</label><br />
+          </div>
+
+          <ul id="users_subscribe_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="users_subscribe_email">Адрес источника</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="users_subscribe_email" value="" id="users_subscribe_email">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">
+                  <label for="users_subscribe_outgoing">Подписать на исходящие</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="checkbox" name="users_subscribe_outgoing" value="" id="users_subscribe_outgoing">
+                </td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="center">
+            <input type="submit" name="ok" value="Применить">
+          </div>
+        </fieldset>
+
+      </form>
+    </div>
+    <script>
+      showhide('%namespace%');
+      document.%namespace%.all_ids.style.display = '';
+    </script>

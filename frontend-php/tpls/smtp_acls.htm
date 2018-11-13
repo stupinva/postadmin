@@ -1,0 +1,123 @@
+<!-- %num%
+        <a href="?view=smtp_acls&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">%num%</a>
+%num% --!>
+<!-- %num_cur%
+       %num%
+%num_cur% --!>
+<!-- %all%
+        <a href="?view=smtp_acls&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">Все</a>
+%all% --!>
+<!-- %all_cur%
+        Все
+%all_cur% --!>
+    <div align="center">
+      <h3>Управление доступом SMTP</h3>
+      <form name="%namespace%" method="POST">
+        Показано строк %num% из %total%.<br />
+        Показать %nums% %all%<br />
+        %prev%
+        %next%
+        <br />
+        %pages%
+        <table align="center">
+          <th>
+            <input type="checkbox" name="all_ids" style="display: none;"
+              onclick="all_checkboxes('ids[]', document.%namespace%.all_ids.checked);">
+          </th>
+          <th>Доступ</th>
+          <th>Адрес</th>
+          <th>Описание</th>
+          %rows%
+<!-- %row_odd%
+          <tr>
+            <td class="odd"><input type="checkbox" name="ids[]" value="%id%"></td>
+            <td class="odd"><a href="?view=smtp_acl&smtp_acl_id=%id%">%acl%</a></td>
+            <td class="odd"><a href="?view=smtp_acl&smtp_acl_id=%id%">%address%</a></td>
+            <td class="odd">%description%</td>
+          </tr>
+%row_odd% --!>
+<!-- %row_even%
+          <tr>
+            <td class="even"><input type="checkbox" name="ids[]" value="%id%"></td>
+            <td class="even"><a href="?view=smtp_acl&smtp_acl_id=%id%">%acl%</a></td>
+            <td class="even"><a href="?view=smtp_acl&smtp_acl_id=%id%">%address%</a></td>
+            <td class="even">%description%</td>
+          </tr>
+%row_even% --!>
+        </table>
+        %pages%
+        <br />
+        %prev%
+        %next%
+<!-- %page%
+        <a href="?view=smtp_acls&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">%page%</a>
+%page% --!>
+<!-- %page_cur%
+        %page%
+%page_cur% --!>
+        <br />
+<!-- %prev%
+        <a href="?view=smtp_acls&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">&#8592;Предыдущая</a>
+%prev% --!>
+<!-- %no_prev%
+        &#8592;Предыдущая
+%no_prev% --!>
+<!-- %next%
+        <a href="?view=smtp_acls&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">Следующая&#8594;</a>
+%next% --!>
+<!-- %no_next%
+        Следующая&#8594;
+%no_next% --!>
+        <br />
+        <fieldset>
+          <legend>Выберите операцию</legend>
+
+          <div align="left">
+            <input type="radio" name="action" value="smtp_acl_new" id="smtp_acl_new" onclick="showhide('%namespace%');" checked="checked">
+            <label for="domain_new">Добавить новое правило</label><br />
+          </div>
+
+          <ul id="smtp_acl_new_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="smtp_acl_new_acl">Список</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="smtp_acl_new_acl" id="smtp_acl_new_acl" value="%smtp_acl_default%">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">
+                  <label for="smtp_acl_new_address">Адрес</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="smtp_acl_new_address" value="" id="smtp_acl_new_address">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">
+                  <label for="smtp_acl_new_description">Описание</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="smtp_acl_new_description" value="" id="smtp_acl_new_description">
+                </td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="left">
+            <input type="radio" name="action" value="smtp_acls_remove" id="smtp_acls_remove" onclick="showhide('%namespace%');">
+            <label for="smtp_acls_remove">Удалить отмеченные правила</label><br />
+          </div>
+
+          <div align="center">
+            <input type="submit" name="ok" value="Применить">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <script>
+      showhide('%namespace%');
+      document.%namespace%.all_ids.style.display = '';
+    </script>

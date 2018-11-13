@@ -1,0 +1,13 @@
+user = postfix
+password = postfix_password
+dbname = mail
+hosts = 127.0.0.1
+query = SELECT recipient
+        FROM subscription
+        WHERE direction='I'
+          AND email='%s'
+          AND email NOT IN
+            (SELECT email
+             FROM user
+             WHERE email='%s'
+               AND active='Y')

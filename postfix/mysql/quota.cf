@@ -1,0 +1,10 @@
+user = postfix
+password = postfix_password
+dbname = mail
+hosts = 127.0.0.1
+query = SELECT '452 Mailbox is over quota'
+        FROM user
+        WHERE email='%s'
+          AND active='Y'
+          AND ((bytes>=max_bytes AND max_bytes>0)
+            OR (messages>=max_messages AND max_messages>0))

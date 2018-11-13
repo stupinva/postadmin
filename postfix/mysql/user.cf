@@ -1,0 +1,7 @@
+user = postfix
+password = postfix_password
+dbname = mail
+hosts = 127.0.0.1
+query = SELECT CONCAT(SUBSTRING_INDEX(email, '@', -1), '/', SUBSTRING_INDEX(email, '@', 1), '/')
+        FROM user
+        WHERE active='Y' AND email='%s'

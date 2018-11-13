@@ -1,0 +1,21 @@
+    Показано строк <TMPL_VAR NAME="onpage"> из <TMPL_VAR NAME="total">
+    <br />
+
+    Показать
+    <TMPL_LOOP NAME="nums">
+      <TMPL_IF NAME="cur">
+        <TMPL_IF NAME="all">
+          <a href="<TMPL_VAR NAME="uri_base">/domains/<TMPL_VAR NAME="num">/<TMPL_VAR NAME="base">"><TMPL_VAR NAME="num"></a>
+        <TMPL_ELSE>
+          <TMPL_VAR NAME="num">
+        </TMPL_IF>
+      <TMPL_ELSE>
+        <a href="<TMPL_VAR NAME="uri_base">/domains/<TMPL_VAR NAME="num">/<TMPL_VAR NAME="base">"><TMPL_VAR NAME="num"></a>
+      </TMPL_IF>
+    </TMPL_LOOP>
+
+    <TMPL_IF NAME="all">
+      Все
+    <TMPL_ELSE>
+      <a href="<TMPL_VAR NAME="uri_base">/domains/all">Все</a>
+    </TMPL_IF>

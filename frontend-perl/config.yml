@@ -1,0 +1,75 @@
+appname: "postadmin"
+charset: "UTF-8"
+template: "html_template"
+
+serializer: "JSON"
+
+engines:
+  html_template:
+    utf8:              1
+    loop_context_vars: 1
+    global_vars:       1
+    default_escape:    html
+
+plugins:
+  Database:
+    driver:                     "mysql"
+    database:                   "mail"
+    host:                       "localhost"
+    port:                       3306
+    username:                   "postadmin"
+    password:                   "postadmin_password"
+    connection_check_threshold: 10
+    on_connect_do:              "SET CHARACTER SET 'UTF8'"
+
+# Настройки навигации
+navigation:
+  nums:
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 40
+    - 50
+    - 75
+    - 100
+    - 125
+    - 150
+    - 175
+    - 200
+    - 300
+    - 400
+    - 500
+    - 750
+    - 1000
+  num: 25
+
+postadmin:
+  # Умолчания
+  domain:               "doamin.ru"
+  local_transports:
+    - "dovecot:"
+    - "virtual:"
+  ad_domain:            "DOMAIN"
+  max_bytes:            1Gb
+  max_messages:         1000
+  smtp_acl:             "permit_whitelist_auth"
+  login_max_length:     12
+  password_min_length:  8
+  password_min_classes: 3
+  password_chars:       "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456.,:;|[]{}()-_+=*&^%$#@!~"
+  menu:
+    - url: "/domains"
+      text: "Домены"
+    - url: "/users"
+      text: "Пользователи"
+    - url: "/user_new"
+      text: "Новый пользователь"
+    - url: "/subscriptions"
+      text: "Подписки"
+    - url: "/smtp_acls"
+      text: "Правила доступа"
+
+logger: "console"

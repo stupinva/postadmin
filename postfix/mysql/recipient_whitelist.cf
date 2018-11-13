@@ -1,0 +1,5 @@
+user = postfix
+password = postfix_password
+dbname = mail
+hosts = 127.0.0.1
+query = SELECT 'permit_auth' FROM smtp_acl WHERE address='%s' AND acl='permit_whitelist_auth'

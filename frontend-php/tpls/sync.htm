@@ -1,0 +1,28 @@
+    <div align="center">
+      <h3>Синхронизация данных с порталом SharePoint</h3>
+      <form method="POST">
+        <fieldset>
+          <legend>Выберите режим синхронизации</legend>
+
+          <div align="left">
+            <p>Если поле заполнено в одной базе, а в другой базе оно пустое,<br>
+            то данные из заполненного поля прописываются также в другой базе.</p>
+
+            <p>Если поле заполнено в обеих базах, то</p>
+
+            <input type="radio" name="mode" value="mail" id="mail">
+            <label for="mail">брать значение поля из почтовой базы</label><br />
+
+            <input type="radio" name="mode" value="portal" id="portal">
+            <label for="portal">брать значение из базы данных портала</label><br />
+
+            <input type="radio" name="mode" value="none" id="none" checked>
+            <label for="none">не изменять значения полей</label><br />
+          </div>
+
+          <div align="center">
+            <input type="submit" name="sync" value="Ok">
+          </div>
+        </fieldset>
+      </form>
+    </div>

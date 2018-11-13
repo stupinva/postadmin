@@ -1,0 +1,17 @@
+            <TMPL_IF NAME="user_id">
+              <tr>
+                <td class="nb" colspan="2">
+                  <input type="checkbox" name="unsubscribe_ids[]" id="unsubscribe_<TMPL_VAR NAME="id">" value="<TMPL_VAR NAME="id">">
+                  <a href="<TMPL_VAR NAME="uri_base">/user/<TMPL_VAR NAME="user_id">"><TMPL_VAR NAME="email"></a>
+                  <label for="unsubscribe_<TMPL_VAR NAME="id">">(<TMPL_VAR NAME="surname"> <TMPL_VAR NAME="name"> <TMPL_VAR NAME="patronym">)</label>
+                </td>
+              </tr>
+            <TMPL_ELSE>
+              <tr>
+                <td class="nb" colspan="2">
+                  <input type="checkbox" name="unsubscribe_ids[]" id="unsubscribe_<TMPL_VAR NAME="id">" value="<TMPL_VAR NAME="id">">
+                  <label for="unsubscribe_<TMPL_VAR NAME="id">"><TMPL_VAR NAME="email"></label>
+                </td>
+              </tr>
+            </TMPL_IF>
+

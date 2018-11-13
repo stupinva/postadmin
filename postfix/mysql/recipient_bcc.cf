@@ -1,0 +1,9 @@
+user = postfix
+password = postfix_password
+dbname = mail
+hosts = 127.0.0.1
+query = SELECT subscription.recipient
+        FROM subscription
+        JOIN user ON user.email=subscription.email AND user.active='Y'
+        WHERE subscription.direction='I'
+          AND subscription.email='%s'

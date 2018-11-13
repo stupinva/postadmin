@@ -1,0 +1,128 @@
+<!-- %num%
+        <a href="?view=domains&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">%num%</a>
+%num% --!>
+<!-- %num_cur%
+       %num%
+%num_cur% --!>
+<!-- %all%
+        <a href="?view=domains&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">Все</a>
+%all% --!>
+<!-- %all_cur%
+        Все
+%all_cur% --!>
+    <div align="center">
+      <h3>Управление доменами</h3>
+      <form name="%namespace%" method="POST">
+        Показано строк %num% из %total%.<br />
+        Показать %nums% %all%<br />
+        %prev%
+        %next%
+        <br />
+        %pages%
+        <table align="center">
+          <th>
+            <input type="checkbox" name="all_ids" style="display: none;"
+              onclick="all_checkboxes('ids[]', document.%namespace%.all_ids.checked);">
+          </th>
+          <th>Домен</th>
+          <th>Транспорт</th>
+          %rows%
+<!-- %row_odd%
+          <tr>
+            <td class="odd"><input type="checkbox" name="ids[]" value="%id%"></td>
+            <td class="odd"><a href="?view=domain&domain_id=%id%">%domain%</a></td>
+            <td class="odd">%transport%</td>
+          </tr>
+%row_odd% --!>
+<!-- %row_even%
+          <tr>
+            <td class="even"><input type="checkbox" name="ids[]" value="%id%"></td>
+            <td class="odd"><a href="?view=domain&domain_id=%id%">%domain%</a></td>
+            <td class="even">%transport%</td>
+          </tr>
+%row_even% --!>
+        </table>
+        %pages%
+        <br />
+        %prev%
+        %next%
+<!-- %page%
+        <a href="?view=domains&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">%page%</a>
+%page% --!>
+<!-- %page_cur%
+        %page%
+%page_cur% --!>
+        <br />
+<!-- %prev%
+        <a href="?view=domains&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">&#8592;Предыдущая</a>
+%prev% --!>
+<!-- %no_prev%
+        &#8592;Предыдущая
+%no_prev% --!>
+<!-- %next%
+        <a href="?view=domains&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">Следующая&#8594;</a>
+%next% --!>
+<!-- %no_next%
+        Следующая&#8594;
+%no_next% --!>
+        <br />
+        <fieldset>
+          <legend>Выберите операцию</legend>
+
+          <div align="left">
+            <input type="radio" name="action" value="domain_new" id="domain_new" onclick="showhide('%namespace%');" checked="checked">
+            <label for="domain_new">Добавить новый домен</label><br />
+          </div>
+
+          <ul id="domain_new_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="domain_new_domain">Домен</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="domain_new_domain" value="" id="domain_new_domain">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">
+                  <label for="domain_new_transport">Транспорт</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="domain_new_transport" value="" id="domain_new_transport">
+                </td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="left">
+            <input type="radio" name="action" value="domains_remove" id="domains_remove" onclick="showhide('%namespace%');">
+            <label for="domains_remove">Удалить отмеченные домены</label><br />
+
+            <input type="radio" name="action" value="domains_change_transport" id="domains_change_transport" onclick="showhide('%namespace%');">
+            <label for="domains_change_transport">Заменить транспорты для отмеченных доменов</label><br />
+          </div>
+
+          <ul id="domains_change_transport_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="domains_change_transport_transport">Транспорт</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="domains_change_transport_transport" value="" id="domains_change_transport_transport">
+                </td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="center">
+            <input type="submit" name="ok" value="Применить">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <script>
+      showhide('%namespace%');
+      document.%namespace%.all_ids.style.display = '';
+    </script>

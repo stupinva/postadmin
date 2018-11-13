@@ -1,0 +1,178 @@
+    <div align="center">
+      <h3>Управление подписками</h3>
+      <form name="%namespace%" method="POST">
+<!-- %num%
+        <a href="?view=subscriptions&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">%num%</a>
+%num% --!>
+<!-- %num_cur%
+       %num%
+%num_cur% --!>
+<!-- %all%
+        <a href="?view=subscriptions&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">Все</a>
+%all% --!>
+<!-- %all_cur%
+        Все
+%all_cur% --!>
+        Показано строк %num% из %total%.<br />
+        Показать %nums% %all%<br />
+        %prev%
+        %next%
+        <br />
+        %pages%
+        <table align="center">
+          <th>
+            <input type="checkbox" name="all_ids" style="display: none;"
+              onclick="all_checkboxes('ids[]', document.%namespace%.all_ids.checked);">
+          </th>
+          <th>Адрес</th>
+          <th>Подписчик</th>
+          <th>Направление</th>
+          <th>Фамилия</th>
+          <th>Имя</th>
+          <th>Отчество</th>
+          %rows%
+<!-- %row_fwd_odd%
+          <tr>
+            <td class="odd"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="odd"><a href="?view=user&user_id=%forwarder_id%">%email%</a></td>
+            <td class="odd"><a href="?view=user&user_id=%recipient_id%">%recipient%</a></td>
+            <td class="odd"><label for="user_%id%">%direction%</label></td>
+            <td class="odd"><label for="user_%id%">%surname%</label></td>
+            <td class="odd"><label for="user_%id%">%name%</label></td>
+            <td class="odd"><label for="user_%id%">%patronym%</label></td>
+          </tr>
+%row_fwd_odd% --!>
+<!-- %row_fwd_even%
+          <tr>
+            <td class="even"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="even"><a href="?view=user&user_id=%forwarder_id%">%email%</a></td>
+            <td class="even"><a href="?view=user&user_id=%recipient_id%">%recipient%</a></td>
+            <td class="even"><label for="user_%id%">%direction%</label></td>
+            <td class="even"><label for="user_%id%">%surname%</label></td>
+            <td class="even"><label for="user_%id%">%name%</label></td>
+            <td class="even"><label for="user_%id%">%patronym%</label></td>
+          </tr>
+%row_fwd_even% --!>
+<!-- %row_fwd_disabled_odd%
+          <tr>
+            <td class="odd"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="odd"><a style="text-decoration: line-through;"
+              href="?view=user&user_id=%forwarder_id%">%email%</a></td>
+            <td class="odd"><a href="?view=user&user_id=%recipient_id%">%recipient%</a></td>
+            <td class="odd"><label for="user_%id%">%direction%</label></td>
+            <td class="odd"><label for="user_%id%">%surname%</label></td>
+            <td class="odd"><label for="user_%id%">%name%</label></td>
+            <td class="odd"><label for="user_%id%">%patronym%</label></td>
+          </tr>
+%row_fwd_disabled_odd% --!>
+<!-- %row_fwd_disabled_even%
+          <tr>
+            <td class="even"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="even"><a style="text-decoration: line-through;"
+              href="?view=user&user_id=%forwarder_id%">%email%</a></td>
+            <td class="even"><a href="?view=user&user_id=%recipient_id%">%recipient%</a></td>
+            <td class="even"><label for="user_%id%">%direction%</label></td>
+            <td class="even"><label for="user_%id%">%surname%</label></td>
+            <td class="even"><label for="user_%id%">%name%</label></td>
+            <td class="even"><label for="user_%id%">%patronym%</label></td>
+          </tr>
+%row_fwd_disabled_even% --!>
+<!-- %row_odd%
+          <tr>
+            <td class="odd"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="odd"><label for="user_%id%">%email%</label></td>
+            <td class="odd"><a href="?view=user&user_id=%recipient_id%">%recipient%</a></td>
+            <td class="odd"><label for="user_%id%">%direction%</label></td>
+            <td class="odd"><label for="user_%id%">%surname%</label></td>
+            <td class="odd"><label for="user_%id%">%name%</label></td>
+            <td class="odd"><label for="user_%id%">%patronym%</label></td>
+          </tr>
+%row_odd% --!>
+<!-- %row_even%
+          <tr>
+            <td class="even"><input type="checkbox" name="ids[]" id="user_%id%" value="%id%"></td>
+            <td class="even"><label for="user_%id%">%email%</label></td>
+            <td class="even"><a href="?view=user&user_id=%recipient_id%">%recipient%</a></td>
+            <td class="even"><label for="user_%id%">%direction%</label></td>
+            <td class="even"><label for="user_%id%">%surname%</label></td>
+            <td class="even"><label for="user_%id%">%name%</label></td>
+            <td class="even"><label for="user_%id%">%patronym%</label></td>
+          </tr>
+%row_even% --!>
+        </table>
+        %pages%
+        <br />
+        %prev%
+        %next%
+<!-- %page%
+        <a href="?view=subscriptions&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">%page%</a>
+%page% --!>
+<!-- %page_cur%
+        %page%
+%page_cur% --!>
+        <br />
+<!-- %prev%
+        <a href="?view=subscriptions&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">&#8592;Предыдущая</a>
+%prev% --!>
+<!-- %no_prev%
+        &#8592;Предыдущая
+%no_prev% --!>
+<!-- %next%
+        <a href="?view=subscriptions&%namespace%_all=%all%&%namespace%_base=%base%&%namespace%_num=%num%">Следующая&#8594;</a>
+%next% --!>
+<!-- %no_next%
+        Следующая&#8594;
+%no_next% --!>
+        <br />
+        <fieldset>
+          <legend>Выберите операцию</legend>
+
+          <div align="left">
+            <input type="radio" name="action" value="subscribe" id="subscribe" onclick="showhide('%namespace%');" checked="checked">
+            <label for="subscribe">Добавить пересылку</label><br />
+          </div>
+
+          <ul id="subscribe_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="subscribe_email">Адрес источника</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="subscribe_email" value="" id="subscribe_email">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">
+                  <label for="subscribe_recipient">Адрес получателя</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="subscribe_recipient" value="" id="subscribe_recipient">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">
+                  <label for="subscribe_outgoing">Подписать на исходящие</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="checkbox" name="subscribe_outgoing" value="" id="subscribe_outgoing">
+                </td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="left">
+            <input type="radio" name="action" value="unsubscribe" id="unsubscribe" onclick="showhide('%namespace%');">
+            <label for="unsubscribe">Удалить отмеченные пересылки</label><br />
+          </div>
+
+          <div align="center">
+            <input type="submit" name="ok" value="Применить">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <script>
+      showhide('%namespace%');
+      document.%namespace%.all_ids.style.display = '';
+    </script>

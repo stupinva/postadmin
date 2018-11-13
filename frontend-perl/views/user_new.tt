@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Регистрация нового пользователя</title>
+    <link rel="stylesheet" type="text/css" href="<TMPL_VAR NAME="uri_base">/styles.css">
+    <script src="<TMPL_VAR NAME="uri_base">/scripts.js"></script>
+  </head>
+  <body>
+    <TMPL_INCLUDE NAME="inc/menu.tt">
+
+    <div align="center">
+    <h3>Регистрация нового пользователя</h3>
+    <form method="POST">
+      <table>
+        <tr>
+          <td colspan="3" class="title">
+            Общая информация о пользователе
+          </td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="surname">Фамилия</label></td>
+          <td class="nb" colspan="2"><input type="text" name="surname" value="<TMPL_VAR NAME="surname">" id="surname"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="name">Имя</label></td>
+          <td class="nb" colspan="2"><input type="text" name="name" value="<TMPL_VAR NAME="name">" id="name"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="patronym">Отчество</label></td>
+          <td class="nb" colspan="2"><input type="text" name="patronym" value="<TMPL_VAR NAME="patronym">" id="patronym"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="ad_login">Логин в Active Directory</label></td>
+          <td class="nb" colspan="2"><input type="text" name="ad_login" value="<TMPL_VAR NAME="ad_login">" id="ad_login"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="department">Отдел</label></td>
+          <td class="nb" colspan="2"><input type="text" name="department" value="<TMPL_VAR NAME="department">" id="department"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="position">Должность</label></td>
+          <td class="nb" colspan="2"><input type="text" name="position" value="<TMPL_VAR NAME="position">" id="position"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="phones">Телефоны</label></td>
+          <td class="nb" colspan="2"><input type="text" name="phones" value="<TMPL_VAR NAME="phones">" id="phones"></td>
+        </tr>
+        <tr>
+          <td colspan="3" class="title">
+            Учётные данные пользователя
+          </td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="domain">Домен</label></td>
+          <td class="nb" colspan="2">
+            <select name="domain" id="domain" class="domain">
+              <TMPL_LOOP NAME="domains">
+                <TMPL_IF NAME="selected">
+                  <option value="<TMPL_VAR NAME="domain">" selected><TMPL_VAR NAME="domain"></option>
+                <TMPL_ELSE>
+                  <option value="<TMPL_VAR NAME="domain">"><TMPL_VAR NAME="domain"></option>
+                </TMPL_IF>
+              </TMPL_LOOP>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="email">Ящик</label></td>
+          <td class="nb"><input class="email" type="text" name="email" value="<TMPL_VAR NAME="email">" id="email"></td>
+          <td class="nbc"><input type="submit" name="get_email" value="Заполнить"></td>
+        </tr>
+        <TMPL_IF NAME="err_email">
+          <tr>
+            <td class="nb"><TMPL_VAR NAME="err_email"></td>
+          </tr>
+        </TMPL_IF>
+        <tr>
+          <td class="nb"><label for="password">Пароль</label></td>
+          <td class="nb"><input class="password" type="text" name="password" value="<TMPL_VAR NAME="password">" id="password"></td>
+          <td class="nbc"><input type="submit" name="get_password" value="Другой"></td>
+        </tr>
+        <TMPL_IF NAME="err_password">
+          <tr>
+            <td class="nb"><TMPL_VAR NAME="err_password"></td>
+          </tr>
+        </TMPL_IF>
+        <tr>
+          <td class="nb">
+            <label for="active">Учётная запись включена</label>
+          </td>
+          <td class="nb" colspan="2">
+            <TMPL_IF NAME="acitve">
+              <input type="checkbox" name="active" id="active" checked>
+            <TMPL_ELSE>
+              <input type="checkbox" name="active" id="active">
+            </TMPL_IF>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" class="title">
+            Ограничения доступа и квоты
+          </td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="smtp_acl">Список доступа SMTP</label></td>
+          <td class="nb" colspan="2"><input type="text" name="smtp_acl" value="<TMPL_VAR NAME="smtp_acl">" id="smtp_acl"></td>
+        </tr>
+        <tr>
+          <td class="nb"><label for="max_bytes">Квота объёма писем</label></td>
+          <td class="nb" colspan="2"><input type="text" name="max_bytes" value="<TMPL_VAR NAME="max_bytes">" id="max_bytes"></td>
+        </tr>
+        <tr>
+          <td class="nb">&nbsp;</td>
+	  <td colspan="2" class="nb">
+	    <small>Введите 0, чтобы отключить квоту объёма писем</small>
+	  </td>
+	</tr>
+        <tr>
+          <td class="nb"><label for="max_messages">Квота количества писем</label></td>
+          <td class="nb" colspan="2"><input type="text" name="max_messages" value="<TMPL_VAR NAME="max_messages">" id="max_messages"></td>
+        </tr>
+        <tr>
+          <td class="nb">&nbsp;</td>
+	  <td colspan="2" class="nb">
+	    <small>Введите 0, чтобы отключить квоту количества писем</small>
+	  </td>
+	</tr>
+        <tr>
+          <td class="nbc" colspan="3"><input type="submit" name="user_new" value="Добавить"></td>
+        </tr>
+      </table>
+    </form>
+    </div>
+  </body>
+</html>

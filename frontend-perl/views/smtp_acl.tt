@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Редактирование правила доступа SMTP</title>
+    <link rel="stylesheet" type="text/css" href="<TMPL_VAR NAME="uri_base">/styles.css">
+    <script src="<TMPL_VAR NAME="uri_base">/scripts.js"></script>
+  </head>
+  <body>
+    <TMPL_INCLUDE NAME="inc/menu.tt">
+
+    <div align="center">
+      <h3>Редактирование правила доступа SMTP <TMPL_VAR NAME="acl"> <TMPL_VAR NAME="address"></h3>
+      <form name="smtp_acl" method="POST">
+        <table>
+          <tr>
+            <td colspan="3" class="nbc">
+              <TMPL_INCLUDE NAME="inc/smtp_acl_prev_next.tt">
+            </td>
+          </tr>
+
+	  <tr>
+	    <td colspan="3" class="title">
+	      Общая информация о правиле доступа
+	    </td>
+	  </tr>
+	  <tr>
+	    <td colspan="2" class="nb">
+	      <label for="acl">Список</label>
+	    </td>
+	    <td class="nb">
+              <input type="text" name="acl" id="acl" value="<TMPL_VAR NAME="acl">">
+	    </td>
+	  </tr>
+	  <tr>
+	    <td colspan="2" class="nb">
+	      <label for="address">Адрес</label>
+	    </td>
+	    <td class="nb">
+	      <input type="text" name="address" id="address" value="<TMPL_VAR NAME="address">">
+	    </td>
+	  </tr>
+	  <tr>
+	    <td colspan="2" class="nb">
+	      <label for="description">Описание</label>
+	    </td>
+	    <td class="nb">
+	      <input type="text" name="description" id="description" value="<TMPL_VAR NAME="description">">
+	    </td>
+	  </tr>
+
+	  <tr>
+	    <td colspan="3" class="nbc">
+	      <input type="submit" name="smtp_acl_edit" value="Изменить">
+	      <input type="submit" name="smtp_acls_remove" value="Удалить">
+	    </td>
+	  </tr>
+
+          <tr>
+            <td colspan="3" class="nbc">
+              <TMPL_INCLUDE NAME="inc/smtp_acl_prev_next.tt">
+            </td>
+          </tr>
+
+	</table>
+      </form>
+    </div>
+  </body>
+</html>

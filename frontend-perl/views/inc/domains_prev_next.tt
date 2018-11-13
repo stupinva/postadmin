@@ -1,0 +1,11 @@
+      <TMPL_IF NAME="no_prev">
+        &#8592;Предыдущая
+      <TMPL_ELSE>
+        <a href="<TMPL_VAR NAME="uri_base">/domains/<TMPL_VAR NAME="num">/<TMPL_VAR NAME="prev">">&#8592;Предыдущая</a>
+      </TMPL_IF>
+
+      <TMPL_IF NAME="no_next">
+        Следующая&#8594;
+      <TMPL_ELSE>
+        <a href="<TMPL_VAR NAME="uri_base">/domains/<TMPL_VAR NAME="num">/<TMPL_VAR NAME="next">">Следующая&#8594;</a>
+      </TMPL_IF>

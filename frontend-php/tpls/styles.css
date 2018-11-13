@@ -1,0 +1,21 @@
+table { border-width: 1px; border-style: solid; border-collapse: collapse; empty-cells: show; }
+table.nb { border-width: 0; background-color: white; }
+th { border-width: 1px; border-style: solid; background-color: orange; font-weight: bold; }
+td.title { border-width: 1px; border-style: solid; background-color: orange; font-weight: bold; }
+td.nb { border-width: 0; background-color: lightyellow; }
+td.nbc { border-width: 0px; background-color: lightyellow; text-align: center; }
+td.odd { border-width: 1px; border-style: solid; background-color: white; }
+td.even { border-width: 1px; border-style: solid; background-color: lightyellow; }
+td.odd_select { border-width: 1px; border-style: solid; background-color: white; cursor: pointer; }
+td.even_select { border-width: 1px; border-style: solid; background-color: lightyellow; cursor: pointer; }
+input[type="submit"].auto { width: auto; }
+input[type="text"] { width: 300px; }
+input[type="password"] { width: 300px; }
+input[type="text"].select { width: 260px; }
+input[type="text"].email { width: 200px; }
+input[type="text"].password { width: 200px; }
+input[type="submit"] { width: 100px; }
+input[type="button"].submit { width: 100px; }
+select { width: 300px; }
+fieldset { display: inline; background-color: lightyellow; }
+h1.error { color: orange; }

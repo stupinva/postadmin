@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Редактирование домена</title>
+    <link rel="stylesheet" type="text/css" href="<TMPL_VAR NAME="uri_base">/styles.css">
+    <script src="<TMPL_VAR NAME="uri_base">/scripts.js"></script>
+  </head>
+  <body>
+    <TMPL_INCLUDE NAME="inc/menu.tt">
+
+    <div align="center">
+      <h3>Редактирование домена <TMPL_VAR NAME="domain"></h3>
+      <form method="POST">
+        <table>
+
+          <tr>
+            <td colspan="3" class="nbc">
+              <TMPL_INCLUDE NAME="inc/domain_prev_next.tt">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" class="title">
+              Общая информация о домене
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="nb">
+              <label for="domain">Домен</label>
+            </td>
+            <td class="nb">
+              <input type="text" name="domain" id="domain" value="<TMPL_VAR NAME="domain">">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="nb">
+              <label for="transport">Транспорт</label>
+            </td>
+            <td class="nb">
+              <input type="text" name="transport" id="transport" value="<TMPL_VAR NAME="transport">">
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="3" class="nbc">
+              <input type="submit" name="domain_edit" value="Изменить">
+              <input type="submit" name="domains_remove" value="Удалить">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" class="nbc">
+              <TMPL_INCLUDE NAME="inc/domain_prev_next.tt">
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

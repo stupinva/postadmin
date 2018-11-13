@@ -1,0 +1,59 @@
+mail_owner = postfix
+
+myhostname = domain.ru
+mydomain = domain.ru
+myorigin = $mydomain
+inet_interfaces = 99.99.99.99, 10.0.0.3, 10.0.1.1, 127.0.0.1
+smtp_bind_address = 99.99.99.99
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+unknown_local_recipient_reject_code = 550
+mynetworks = 127.0.0.0/8
+
+smtpd_banner = $myhostname ESMTP
+debug_peer_level = 2
+setgid_group = mail
+
+# Настройки доменов, транспортов, пользователей и подписок
+transport_maps = mysql:/etc/postfix/mysql/transport.cf
+#virtual_mailbox_domains =
+relay_domains = $transport_maps
+virtual_mailbox_base = /var/mail/virtual
+virtual_mailbox_maps = mysql:/etc/postfix/mysql/user.cf
+virtual_alias_maps = mysql:/etc/postfix/mysql/subscription.cf
+virtual_uid_maps = static:999
+virtual_gid_maps = static:999
+local_recipient_maps = $virtual_mailbox_maps $virtual_alias_maps $transport_maps
+
+content_filter = scan:127.0.0.1:10028
+receive_override_options = no_address_mappings
+
+# Копирование почты
+always_bcc = log
+sender_bcc_maps = mysql:/etc/postfix/mysql/sender_bcc.cf
+recipient_bcc_maps = mysql:/etc/postfix/mysql/recipient_bcc.cf
+#message_size_limit = 10240000
+
+# Классы ограничений на отправку почты
+smtpd_restriction_classes = permit_auth, permit_whitelist_auth
+permit_whitelist_auth = check_recipient_access mysql:/etc/postfix/mysql/recipient_whitelist.cf
+permit_auth = permit_sasl_authenticated
+# Аутентификация POP before SMTP или IMAP before SMTP
+#, check_client_access mysql:/etc/postfix/mysql/pop_before_smtp.cf
+
+smtpd_recipient_restrictions =
+ permit_mynetworks,
+ check_sender_access mysql:/etc/postfix/mysql/sender_blacklist.cf,
+ check_recipient_access mysql:/etc/postfix/mysql/quota.cf,
+ check_sender_access mysql:/etc/postfix/mysql/user_acl.cf,
+ check_policy_service inet:127.0.0.1:60000,
+ reject_unauth_destination,
+# warn_if_reject,
+ reject_rbl_client zen.spamhaus.org,
+ reject_rbl_client dul.ru
+
+# Настройки dovecot
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+virtual_transport = dovecot
+dovecot_destination_recipient_limit = 1

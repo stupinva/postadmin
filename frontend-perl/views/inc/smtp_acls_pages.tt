@@ -1,0 +1,11 @@
+    <TMPL_IF NAME="all">
+      1
+    <TMPL_ELSE>
+      <TMPL_LOOP NAME="pages">
+        <TMPL_IF NAME="cur">
+          <TMPL_VAR NAME="page">
+        <TMPL_ELSE>
+          <a href="<TMPL_VAR NAME="uri_base">/smtp_acls/<TMPL_VAR NAME="num">/<TMPL_VAR NAME="base">"><TMPL_VAR NAME="page"></a>
+        </TMPL_IF>
+      </TMPL_LOOP>
+    </TMPL_IF>

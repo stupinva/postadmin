@@ -1,0 +1,8 @@
+user = postfix
+password = postfix_password
+dbname = mail
+hosts = 127.0.0.1
+query = SELECT DISTINCT 'OK'
+        FROM user
+        WHERE lastip='%s'
+          AND ADDTIME(lasttime, '0:15:0')>NOW()

@@ -1,0 +1,23 @@
+    <div align="center">
+      <table>
+        <tr>
+          <TMPL_LOOP NAME="menu">
+            <TMPL_UNLESS NAME="__first__">
+              <td class="nb">&nbsp;</td>
+            </TMPL_UNLESS>
+
+            <TMPL_IF NAME="current">
+              <td class="title">
+                <TMPL_VAR NAME="text">
+              </td>
+            <TMPL_ELSE>
+              <td class="nb">
+                <a href="<TMPL_VAR NAME="uri_base"><TMPL_VAR NAME="url">"><TMPL_VAR NAME="text"></a>
+              </td>
+            </TMPL_IF>
+
+          </TMPL_LOOP>
+        </tr>
+      </table>
+    </div>
+

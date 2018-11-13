@@ -1,0 +1,63 @@
+    <div align="center">
+      <h3>Редактирование правила доступа SMTP %acl% %address%</h3>
+      <form name="%namespace%" method="POST">
+        <input type="hidden" name="id" value="%id%">
+        <table>
+
+	  <tr>
+	    <td colspan="3" class="title">
+	      Общая информация о правиле доступа
+	    </td>
+	  </tr>
+	  <tr>
+	    <td colspan="2" class="nb">
+	      <label for="acl">Список</label>
+	    </td>
+	    <td class="nb">
+              <input type="text" name="acl" id="acl" value="%acl%">
+	    </td>
+	  </tr>
+	  <tr>
+	    <td colspan="2" class="nb">
+	      <label for="address">Адрес</label>
+	    </td>
+	    <td class="nb">
+	      <input type="text" name="address" id="address" value="%address%">
+	    </td>
+	  </tr>
+	  <tr>
+	    <td colspan="2" class="nb">
+	      <label for="description">Описание</label>
+	    </td>
+	    <td class="nb">
+	      <input type="text" name="description" id="description" value="%description%">
+	    </td>
+	  </tr>
+
+	  <tr>
+	    <td colspan="3" class="nbc">
+	      <input type="submit" name="smtp_acl_edit" value="Изменить">
+	      <input type="submit" name="smtp_acls_remove" value="Удалить">
+	    </td>
+	  </tr>
+<!-- %prev%
+              <a href="?view=smtp_acl&smtp_acl_id=%id%">&#8592;Предыдущий</a>
+%prev% --!>
+<!-- %no_prev%
+              &#8592;Предыдущий
+%no_prev% --!>
+<!-- %next%
+              <a href="?view=smtp_acl&smtp_acl_id=%id%">Следующий&#8594;</a>
+%next% --!>
+<!-- %no_next%
+              Следующий&#8594;
+%no_next% --!>
+          <tr>
+            <td colspan="3" class="nbc">
+              %prev%
+              %next%
+            </td>
+          </tr>
+	</table>
+      </form>
+    </div>

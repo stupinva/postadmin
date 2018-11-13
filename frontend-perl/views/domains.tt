@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="stylesheet" type="text/css" href="<TMPL_VAR NAME="uri_base">/styles.css">
+    <script src="<TMPL_VAR NAME="uri_base">/scripts.js"></script>
+    <title>Домены</title>
+  </head>
+  <body>
+    <TMPL_INCLUDE NAME="inc/menu.tt">
+
+    <div align="center">
+      <h3>Управление доменами</h3>
+      <form name="domains" method="POST">
+        <TMPL_INCLUDE NAME="inc/domains_nums.tt">
+        <br />
+        <TMPL_INCLUDE NAME="inc/domains_pages.tt">
+        <br />
+        <TMPL_INCLUDE NAME="inc/domains_prev_next.tt">
+        <br />
+
+        <table align="center">
+          <th>
+            <input type="checkbox" name="all_ids" style="display: none;"
+              onclick="all_checkboxes('ids[]', document.domains.all_ids.checked);">
+          </th>
+          <th>Домен</th>
+          <th>Транспорт</th>
+
+          <TMPL_LOOP NAME="domains">
+            <TMPL_IF NAME="__odd__">
+              <tr>
+                <td class="odd"><input type="checkbox" name="ids[]" value="<TMPL_VAR NAME="id">"></td>
+                <td class="odd"><a href="<TMPL_VAR NAME="uri_base">/domain/<TMPL_VAR NAME="id">"><TMPL_VAR NAME="domain"></a></td>
+                <td class="odd"><TMPL_VAR NAME="transport"></td>
+              </tr>
+            <TMPL_ELSE>
+              <tr>
+                <td class="even"><input type="checkbox" name="ids[]" value="<TMPL_VAR NAME="id">"></td>
+                <td class="even"><a href="<TMPL_VAR NAME="uri_base">/domain/<TMPL_VAR NAME="id">"><TMPL_VAR NAME="domain"></a></td>
+                <td class="even"><TMPL_VAR NAME="transport"></td>
+              </tr>
+            </TMPL_IF>
+          </TMPL_LOOP>
+
+        </table>
+
+        <TMPL_INCLUDE NAME="inc/domains_prev_next.tt">
+        <br />
+        <TMPL_INCLUDE NAME="inc/domains_pages.tt">
+        <br />
+
+        <fieldset>
+          <legend>Выберите операцию</legend>
+
+          <div align="left">
+            <input type="radio" name="action" value="domain_new" id="domain_new" onclick="showhide('domains');" checked="checked">
+            <label for="domain_new">Добавить новый домен</label><br />
+          </div>
+
+          <ul id="domain_new_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="domain_new_domain">Домен</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="domain_new_domain" value="" id="domain_new_domain">
+                </td>
+              </tr>
+              <tr>
+                <td class="nb">
+                  <label for="domain_new_transport">Транспорт</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="domain_new_transport" value="" id="domain_new_transport">
+                </td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="left">
+            <input type="radio" name="action" value="domains_remove" id="domains_remove" onclick="showhide('domains');">
+            <label for="domains_remove">Удалить отмеченные домены</label><br />
+
+            <input type="radio" name="action" value="domains_change_transport" id="domains_change_transport" onclick="showhide('domains');">
+            <label for="domains_change_transport">Заменить транспорты для отмеченных доменов</label><br />
+          </div>
+
+          <ul id="domains_change_transport_input">
+            <table class="nb">
+              <tr>
+                <td class="nb">
+                  <label for="domains_change_transport_transport">Транспорт</label>
+                </td>
+                <td class="nb" colspan="2">
+                  <input type="text" name="domains_change_transport_transport" value="" id="domains_change_transport_transport">
+                </td>
+              </tr>
+            </table>
+          </ul>
+
+          <div align="center">
+            <input type="submit" name="ok" value="Применить">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <script>
+      showhide('domains');
+      document.domains.all_ids.style.display = '';
+    </script>
+  </body>
+</html>
